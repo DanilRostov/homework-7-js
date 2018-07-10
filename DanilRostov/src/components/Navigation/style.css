@@ -1,0 +1,9 @@
+.nav {
+	background-color: #ECEFF1;
+	border-radius: 2px;
+	padding: 10px 0;
+}
+
+.nav-link {
+	font-size: 28px;
+}

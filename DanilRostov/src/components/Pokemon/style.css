@@ -1,0 +1,12 @@
+img {
+	width: 100%;
+}
+
+.img-box,
+.title {
+	display: inline-block;
+}
+
+.list-item {
+	margin-top: 10px;
+}

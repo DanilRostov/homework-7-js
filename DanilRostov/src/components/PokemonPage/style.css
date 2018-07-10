@@ -1,0 +1,21 @@
+.card {
+	margin-top: 50px;
+	padding: 0;
+}
+
+.btn-back {
+	margin-top: 0;
+	width: 100%;
+}
+
+.catched {
+	background-color: #A5D6A7;
+}
+
+.notcatched {
+	background-color: #E57373;
+}
+
+.container {
+	padding-bottom: 20px;
+}
