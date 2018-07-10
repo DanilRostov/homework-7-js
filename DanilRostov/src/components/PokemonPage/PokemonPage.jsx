@@ -15,7 +15,9 @@ export default class PokemonPage extends Component {
 		const id = this.props.match.params.id;
 		fetch(`http://localhost:3005/pokemons/${id}`)
 		.then((res) => res.json())
-		.then((data) => {
+		.then((datacd exports.functionName = function () {
+			// body...
+		};) => {
 			this.setState({
 				pokemon: data,
 			})
@@ -33,8 +35,8 @@ export default class PokemonPage extends Component {
 			}
 			return null;
 		});
-
 		const dateTag = catchedIds.indexOf(id) != -1 ? <li className="list-group-item">Date of catching: {date}</li> : null;
+
 
 		return (
 			<div className="card offset-sm-1 col-sm-10 col-lg-4 offset-lg-4">
