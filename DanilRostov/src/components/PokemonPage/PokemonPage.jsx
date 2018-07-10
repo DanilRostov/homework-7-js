@@ -15,9 +15,7 @@ export default class PokemonPage extends Component {
 		const id = this.props.match.params.id;
 		fetch(`http://localhost:3005/pokemons/${id}`)
 		.then((res) => res.json())
-		.then((datacd exports.functionName = function () {
-			// body...
-		};) => {
+		.then((data) => {
 			this.setState({
 				pokemon: data,
 			})
