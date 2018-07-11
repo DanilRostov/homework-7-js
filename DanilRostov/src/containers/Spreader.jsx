@@ -25,19 +25,41 @@ export default class Spreader extends Component {
 
 	render() {
 		const { catchedPokemons, catchedIds } = this.state;
+		const host = 'http://localhost:3005';
+		const imgSrc = 'https://raw.githubusercontent.com/epam-js-may-2018/homework-7-js/master/pokemons';
 		return (
 			<Switch>
 				<Route
 					exact path="/"
-					render={(props) => <PokemonsList {...props} catchedIds={catchedIds} catchedPokemons={catchedPokemons} onCatched={this.handleCatched}/>}
+					render={(props) => <PokemonsList
+																	{...props}
+																	catchedIds={catchedIds}
+																	catchedPokemons={catchedPokemons}
+																	onCatched={this.handleCatched}
+																	host={host}
+																	imgSrc={imgSrc}
+															/>
+					}
 				/>
 				<Route
 					 exact path="/catched"
-					 render={(props) => <PokemonsCatched {...props} catchedPokemons={this.state.catchedPokemons}/>}
+					 render={(props) => <PokemonsCatched
+						 											{...props}
+																	catchedPokemons={this.state.catchedPokemons}
+																	imgSrc={imgSrc}
+															/>
+					}
 				 />
 				<Route
 					exact path="/pokemon/:id"
-					render={(props) => <PokemonPage {...props} catchedIds={catchedIds} catchedPokemons={catchedPokemons}/>}
+					render={(props) => <PokemonPage
+																	{...props}
+																	catchedIds={catchedIds}
+																	catchedPokemons={catchedPokemons}
+																	host={host}
+																	imgSrc={imgSrc}
+															/>
+					}
 				/>
 			</Switch>
 		);

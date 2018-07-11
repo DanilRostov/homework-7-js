@@ -14,8 +14,9 @@ export default class PokemonsList extends Component {
 
 	loadPosts = () => {
 		const { pokemons } = this.state;
+		const { host } = this.props;
 		const limit = 10;
-		fetch(`http://localhost:3005/pokemons?_start=${pokemons.length}&_limit=${limit}`)
+		fetch(`${host}/pokemons?_start=${pokemons.length}&_limit=${limit}`)
 		.then((res) => res.json())
 		.then((newPokemons) => {
 			this.setState({
@@ -42,7 +43,19 @@ export default class PokemonsList extends Component {
 
 		return(
 			<div className="list">
-				{pokemons.map((pokemon) => <Pokemon key={pokemon.id} id={pokemon.id} catched={this.props.catchedIds.indexOf(pokemon.id) != -1} catchedIds={this.state.catchedIds} pokemon={pokemon} name={pokemon.name} catchPossible onCatched={this.onCatched}/> )}
+				{pokemons.map((pokemon) => <Pokemon
+																				key={pokemon.id}
+																				id={pokemon.id}
+																				name={pokemon.name}
+																				catched={this.props.catchedIds.indexOf(pokemon.id) != -1}
+																				catchedIds={this.state.catchedIds}
+																				pokemon={pokemon}
+																				onCatched={this.onCatched}
+																				imgSrc={this.props.imgSrc}
+																				host={this.props.host}
+																				catchPossible
+																		/>
+				)}
 				<div className="btn-box">
 					<button className="btn btn-primary" onClick={this.loadPosts}>Load more pokemons</button>
 				</div>

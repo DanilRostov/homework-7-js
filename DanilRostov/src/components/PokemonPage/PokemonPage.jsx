@@ -13,7 +13,8 @@ export default class PokemonPage extends Component {
 
 	componentDidMount() {
 		const id = this.props.match.params.id;
-		fetch(`http://localhost:3005/pokemons/${id}`)
+		const { host } = this.props;
+		fetch(`${host}/pokemons/${id}`)
 		.then((res) => res.json())
 		.then((data) => {
 			this.setState({
@@ -23,7 +24,7 @@ export default class PokemonPage extends Component {
 	}
 
 	render() {
-		const { catchedIds, catchedPokemons } = this.props;
+		const { catchedIds, catchedPokemons, imgSrc } = this.props;
 		const id = Number(this.props.match.params.id);
 		const catched = catchedIds.indexOf(id) != -1 ? 'is catched' : 'not catched';
 		const catchedClass = catchedIds.indexOf(Number(id)) != -1 ? 'catched' : 'notcatched';
@@ -39,7 +40,7 @@ export default class PokemonPage extends Component {
 		return (
 			<div className="card offset-sm-1 col-sm-10 col-lg-4 offset-lg-4">
 				<h2 className="card-header">{this.state.pokemon.name}</h2>
-				<img className="card-img" src={`https://raw.githubusercontent.com/epam-js-may-2018/homework-7-js/master/pokemons/${id}.png`} />
+				<img className="card-img" src={`${imgSrc}/${id}.png`} />
 				<ul className="list-group list-group-flush">
 					<li className={`list-group-item ${catchedClass}`}>Pokemon {catched}</li>
 					{dateTag}
