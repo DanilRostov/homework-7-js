@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import moment from 'moment';
 
 import './style.css';
 
@@ -14,13 +15,7 @@ export default class Pokemon extends Component {
 
   onCatch = () => {
     const { pokemon } = this.props;
-    const date = new Date();
-    const dateString = date.getUTCDay() + '.' +
-                      '0' + date.getUTCMonth() + '.' +
-                      date.getUTCFullYear() + ' ' +
-                      date.getHours() + ':' +
-                      date.getMinutes() + ':' +
-                      date.getSeconds();
+    const dateString = moment().format( "Do MMM YYYY HH:mm" );
     this.setState({
       catched: true,
       dataOfCatching: dateString,
