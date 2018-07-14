@@ -11,15 +11,23 @@ export default class Spreader extends Component {
     this.state = {
       catchedPokemons: [],
       catchedIds: [],
+      loadedPokemons: [],
     }
   }
 
-  handleCatched = (pokemon, date) => {
+  handleCatched = (pokemons, pokemon, date) => {
     const { catchedPokemons, catchedIds } = this.state;
     pokemon.dateOfCatching = date;
     this.setState({
       catchedPokemons: catchedPokemons.concat(pokemon),
       catchedIds: catchedIds.concat(pokemon.id),
+    });
+  }
+
+  handleLoadPokemons = (pokemons) => {
+    const { loadedPokemons } = this.state;
+    this.setState({
+      loadedPokemons: pokemons,
     });
   }
 
@@ -36,6 +44,7 @@ export default class Spreader extends Component {
                                 catchedIds={catchedIds}
                                 catchedPokemons={catchedPokemons}
                                 onCatched={this.handleCatched}
+                                onLoadPokemons={this.handleLoadPokemons}
                                 host={host}
                                 imgSrc={imgSrc}
                              />
@@ -56,6 +65,7 @@ export default class Spreader extends Component {
                                 {...props}
                                 catchedIds={catchedIds}
                                 catchedPokemons={catchedPokemons}
+                                loadedPokemons={this.state.loadedPokemons}
                                 host={host}
                                 imgSrc={imgSrc}
                              />

@@ -27,7 +27,7 @@ export default class PokemonPage extends Component {
     const { catchedIds, catchedPokemons, imgSrc } = this.props;
     const id = Number(this.props.match.params.id);
     const catched = catchedIds.indexOf(id) != -1 ? 'is catched' : 'not catched';
-    const catchedClass = catchedIds.indexOf(Number(id)) != -1 ? 'catched' : 'notcatched';
+    const catchedClass = catchedIds.indexOf(id) != -1 ? 'catched' : 'notCatched';
     const date = catchedPokemons.map((pokemon) => {
       if(pokemon.id === id) {
         return pokemon.dateOfCatching;

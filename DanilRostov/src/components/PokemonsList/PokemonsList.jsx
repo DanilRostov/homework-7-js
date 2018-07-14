@@ -23,6 +23,7 @@ export default class PokemonsList extends Component {
         pokemons: pokemons.concat(newPokemons),
         catchedIds: [],
       });
+      this.props.onLoadPokemons(this.state.pokemons);
     });
   }
 
@@ -31,8 +32,8 @@ export default class PokemonsList extends Component {
   }
 
   onCatched = (pokemon, date) => {
-    const { catchedIds } = this.state;
-    this.props.onCatched(pokemon, date);
+    const { catchedIds, pokemons } = this.state;
+    this.props.onCatched(pokemons, pokemon, date);
     this.setState({
       catchedIds: catchedIds.concat(pokemon.id),
     })

@@ -24,14 +24,14 @@ export default class Pokemon extends Component {
   }
 
   render() {
-    const { name, id, imgSrc } = this.props;
-    const btnDisabledValue = this.props.catched ? true : false;
-    const btnValue = this.props.catched ? 'Catched' : 'Catch';
-    const btn = this.props.catchPossible ? <button
-                                              disabled={btnDisabledValue}
-                                              className="btn btn-success col-sm-4 col-lg-2"
-                                              onClick={this.onCatch}>{btnValue}
-                                           </button> : null;
+    const { name, id, imgSrc, catchPossible, catched } = this.props;
+    const btnDisabledValue = catched ? true : false;
+    const btnValue = catched ? 'Catched' : 'Catch';
+    const btn = catchPossible ? <button
+                                  disabled={btnDisabledValue}
+                                  className="btn btn-success col-sm-4 col-lg-2"
+                                  onClick={this.onCatch}>{btnValue}
+                                </button> : null;
 
     return (
       <div className="list-group">
